@@ -160,8 +160,10 @@ class Sql {
 			//$currentVersion = \SQLite3::version()['versionString'] ?? '3.0.0';
 			//$fts5Support = (version_compare($currentVersion,'3.9.0') >= 0);
 			$fts5Support = true;
+
 			$query       = 'DROP TABLE IF EXISTS fts5_module_available_test';
 			$this->db->query($query , 'fts5 test module');
+
 
 			try {
 				$query = 'CREATE VIRTUAL TABLE fts5_module_available_test USING fts5(sender, title, body)';
@@ -237,6 +239,12 @@ class Sql {
 
 	function insertData($filter = []) {
 		$glob   = ['', '*/*/', '*/'];
+		
+		if (DB_ENGINE == 'sqlite') {
+			//try to speed up install
+			$query       = 'pragma journal_mode = WAL;pragma synchronous = normal;pragma temp_store = memory;pragma mmap_size = 30000000000;';
+			$this->db->query($query , 'journal_mode WAL');
+		}		
 
 		//$files = glob($name, GLOB_BRACE);
 		$files = globBrace($this->sqlPath, ['', '**/'], '*.sql');

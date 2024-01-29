@@ -377,6 +377,21 @@ class Base {
 		//$this->session->delete('csrf');
 		//$this->session = Session::getInstance();
 		//$this->request = Request::getInstance();
+		$view = View :: getInstance();
+		$view->removeVattrs(false);
+
+		if (isset($this->request->get['errors'])) {
+			$view->errors['get'] = htmlentities($this->request->get['errors']);
+		}
+
+		if (isset($this->request->get['success'])) {
+			$view->success['get'] = htmlentities($this->request->get['success']);
+		}
+
+		//prevent admin loading in iframe
+		$this->response->addHeader('X-Frame-Options', 'SAMEORIGIN');
+		$this->response->addHeader('X-Content-Type-Options', 'nosniff');
+
 		$admin = Admin::current();
 
 		if (! $admin) {
@@ -396,9 +411,6 @@ class Base {
 		if (! $site_id) {
 			$site_id = $this->setSite();
 		}
-
-		$view = View :: getInstance();
-		$view->removeVattrs(false);
 
 		$this->language('en_US', 1);
 		$this->currency('USD', 1);
@@ -437,17 +449,9 @@ class Base {
 			Plugins :: loadPlugins($site_id);
 		}
 
-		if (isset($this->request->get['errors'])) {
-			$view->errors['get'] = htmlentities($this->request->get['errors']);
-		}
-
 		if ($errors = $this->session->get('errors')) {
 			$view->errors['session'] = $errors;
 			$this->session->delete('errors');
-		}
-
-		if (isset($this->request->get['success'])) {
-			$view->success['get'] = htmlentities($this->request->get['success']);
 		}
 
 		if ($success = $this->session->get('success')) {
@@ -486,6 +490,8 @@ class Base {
 
 		$view->menu       = $menu;
 
+		$adminPath        = \Vvveb\adminPath();
+		$view->adminPath  = $adminPath;
 		$view->mediaPath  = PUBLIC_PATH . 'media';
 		$view->publicPath = PUBLIC_PATH . 'media';
 	}

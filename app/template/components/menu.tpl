@@ -8,6 +8,8 @@
 @category|deleteAllButFirstChild
 
 @categories|before = <?php
+$vvveb_is_page_edit = Vvveb\isEditor();
+
 if (isset($_menu_idx)) $_menu_idx++; else $_menu_idx = 0;
 
 $_categories = [];

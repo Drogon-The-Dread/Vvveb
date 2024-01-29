@@ -590,7 +590,7 @@
 			
 			VALUES ( :each, :taxonomy_item_id)
 			ON CONFLICT(`taxonomy_item_id`,`language_id`)
-			DO UPDATE SET `name` = :each.name, `content` = :each.content, `slug` = :each.slug 
+			DO UPDATE SET @LIST(:each)
 			WHERE taxonomy_item_id = :taxonomy_item_id AND language_id = :each.language_id;				
 
 		-- allow only table fields and set defaults for missing values

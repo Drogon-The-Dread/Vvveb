@@ -56,9 +56,10 @@ class Setting {
 
 				foreach ($result as $value) {
 					$val = $value['value'];
-					if ($val[0] == '{') {
+
+					if ($val && is_string($val) && $val[0] == '{') {
 						$json = json_decode($val, true);
-						$val =  $json ?: $val;
+						$val  =  $json ?: $val;
 					}
 					$return[$value['key']] = $val;
 				}
@@ -92,6 +93,7 @@ class Setting {
 		}
 
 		$this->setting[$namespace][$key] = $value;
+
 		if (is_array($value)) {
 			$value = json_encode($value);
 		}

@@ -61,6 +61,22 @@ class Site extends Base {
 		die(date($format));
 	}
 
+	private function invoiceFormatPreview($format) {
+		$data = ['order_id' => 777, 'user_id' => 1000, 'site_id' => 1];
+
+		return \Vvveb\invoiceFormat($format, $data);
+	}
+
+	function invoiceFormat() {
+		$format = $this->request->get['format'] ?? false;
+
+		if ($format) {
+			$format = $this->invoiceFormatPreview($format);
+		}
+
+		die($format);
+	}
+
 	function regions() {
 		$country_id = $this->request->get['country_id'] ?? false;
 		$regions    = [];
@@ -78,6 +94,10 @@ class Site extends Base {
 		$this->response->output($regions);
 	}
 
+	function add() {
+		$this->save();
+	}
+	
 	function save() {
 		$siteValidator 		    = new Validator(['site']);
 		$settingsValidator	  = new Validator(['site-settings']);
@@ -207,6 +227,8 @@ class Site extends Base {
 				$view->domain = ($domain['domain'] ?? '') . '.' . ($domain['tld'] ?? '');
 			}
 
+			$setting['invoice_format_preview'] = $this->invoiceFormatPreview($setting['invoice_format'] ?? '');
+
 			$view->set($data);
 			$view->site         = $site + $setting;
 			$view->setting      = $setting;
@@ -217,6 +239,8 @@ class Site extends Base {
 			$controllerPath  = $admin_path . 'index.php?module=media/media';
 			$view->scanUrl   = "$controllerPath&action=scan";
 			$view->uploadUrl = "$controllerPath&action=upload";
+			$view->deleteUrl = "$controllerPath&action=delete";
+			$view->renameUrl = "$controllerPath&action=rename";
 		}
 	}
 }

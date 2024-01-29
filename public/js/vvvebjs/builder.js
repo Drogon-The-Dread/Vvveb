@@ -1669,6 +1669,23 @@ Vvveb.Builder = {
 			return false;
 		});
 		
+		$("#translate-code-btn").on("click", function(event) {
+			let selectedEl = Vvveb.Builder.selectedEl.get(0);
+			let value = selectedEl.innerHTML.trim();
+			// uncomment to use outerHTML, not recommended
+			//let value = selectedEl.outerHTML;
+			Vvveb.ModalCodeEditor.show();
+			Vvveb.ModalCodeEditor.setValue(value);
+
+			//$(window).one("vvveb.ModalTranslateEditor.save",  function(event, value) {
+			$(window).one("vvveb.ModalCodeEditor.save",  function(event, value) {
+				selectedEl.innerHTML = value;
+				//selectedEl.outerHTML = value;
+			});
+			
+			return false;
+		});
+
 		$("#delete-btn").on("click", function(event) {
 			$("#select-box").hide();
 			

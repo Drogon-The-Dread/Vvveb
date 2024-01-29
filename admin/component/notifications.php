@@ -203,7 +203,10 @@ class Notifications extends ComponentBase {
 
 		if ($results['menu'] && $index == 0) {
 			$view       = View::getInstance();
-			$view->menu = array_merge_recursive($view->menu, $results['menu']);
+
+			if (isset($view->menu) && $view->menu) {
+				$view->menu = array_merge_recursive($view->menu, $results['menu']);
+			}
 		}
 	}
 

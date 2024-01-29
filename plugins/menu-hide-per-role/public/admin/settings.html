@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
+  
+
+  <base href="">
+
+  <title>Vvveb - Menu hide items per role plugin</title>
+
+  <link href="css/admin.css" rel="stylesheet">
+</head>
+
+
+<body>
+
+  <div id="container">
+
+    <div class="sidebar" data-v-copy-from="index.html,.sidebar">
+    </div>
+
+
+    <div class="main" id="hide-menu-per-role">
+
+      <div class="clearfix top-header" data-v-copy-from="index.html,.top-header">
+
+      </div>
+
+      <form id="settings-form" action="" method="post" class="needs-validation" novalidate data-v-product>
+        <input type="hidden" name="action" id="action" value="save">
+        <div class="actions">
+          <div class="title">
+            <h4 class="text-muted mt-2">
+              <img src="../../plugins/menu-hide-per-role/menu-hide-per-role.svg" width="24" class="">
+              <span>Menu hide items per role</span>
+            </h4>
+          </div>
+          <div class="btns">
+          <button type="submit" href="" class="btn btn-primary btn-icon ms-1" title="Save post">
+            <i class="icon-create-outline"></i> <span>Save settings</span>
+          </button>
+          </div>
+        </div>
+        <div>
+          <div id="main-content">
+
+         	<div class="notifications" data-v-notifications data-v-copy-from="index.html,.notifications"></div>
+
+            <div class="content clearfix settings">
+
+					<ul class="nav nav-tabs" id="rolesTabs" role="tablist" data-v-roles-tabs>
+					
+					  <li class="nav-item" role="presentation">
+						<button class="nav-link active" id="general-tab" data-bs-toggle="tab" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true">General</button>
+					  </li>
+
+					  <li class="nav-item" role="presentation" data-v-roles-tab>
+						<button data-v-roles-tab-link class="nav-link" id="roles-tab" data-bs-toggle="tab" data-bs-target="#roles" type="button" role="tab" aria-controls="general" aria-selected="true">
+							<span data-v-roles-tab-name>Gateway tab</span>
+						</button>
+					  </li>
+					</ul>
+			</div>
+			
+					
+					<div class="tab-content" data-v-roles-tabs>
+					
+						<div class="tab-pane p-4 show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+                 
+							<div class="row mb-3">
+							 <!-- <label for="input-language" class="col-sm-2 col-form-label">Gateways</label> -->
+							  <div class="" data-v-roles>
+									
+									<div class="form-control">
+										<div class=" mb-2" data-v-role>
+											<div class="switch switch--horizontal switch--no-label">
+												<input type="radio" name="settings[roles][name][enabled]" value="false" data-v-roles-input> 
+												<label class="d-none">Off</label>
+
+												<input type="radio" name="settings[roles][name][enabled]" value="true" data-v-roles-input> 
+												<label class="d-none">On</label>
+												<span class="toggle-outside"><span class="toggle-inside"></span></span>												
+											</div>
+											<span class="ms-2" data-v-roles-name>Gateway name</span>
+										</div>
+										<div class="form-check" data-v-role>
+											<label class="form-check-label">
+												<input type="checkbox" name="settings[roles][name][enabled]" value="user" class="form-check-input"> 
+												<span data-v-roles-name>Gateway name</span>
+											</label>
+										</div>
+										<div class="form-check" data-v-role>
+											<label class="form-check-label">
+												<input type="checkbox" name="settings[roles][name][enabled]" data-v-setting="alert.comment" value="comment" class="form-check-input"> 
+												New post comment</label>
+										</div>
+										<div class="form-check" data-v-role>
+											<label class="form-check-label">
+												<input type="checkbox" name="settings[roles][name][enabled]" data-v-setting="alert.question" value="question" class="form-check-input">
+												New product question</label>
+										</div>
+										<div class="form-check" data-v-role>
+											<label class="form-check-label">
+												<input type="checkbox" name="settings[roles][name][enabled]" data-v-setting="alert.review" value="review" class="form-check-input"> 
+												New product review</label>
+										</div>
+									</div>							
+								
+							  </div>
+							</div>
+					
+						</div>		
+
+						<div class="tab-pane p-4" id="roles" role="tabpanel" aria-labelledby="roles-tab" data-v-roles-tab data-v-roles-tab-pane>	
+							
+								
+								<ul class="nav navbar-nav" data-v-menu>
+						
+									<li class="nav-item" data-v-menu-item>
+										<a class="nav-link d-none d-md-block " href="/admin" 
+										   data-v-menu-item-url>
+										    <input type="checkbox" class="form-check-input me-1" name="">
+											<i class="icon-pulse-outline" data-v-menu-item-icon></i>
+											<img src="#" class="icon-img" data-v-menu-item-icon-img>
+											<span class="title" data-v-menu-item-name>Dashboard</span>
+											<!-- span class="text-muted" data-v-menu-item-subtitle>Subtitle</span -->
+											<span class="badge badge-primary" data-v-menu-item-badge></span>
+										</a>
+										
+										<a class="nav-link mobile d-block d-sm-none" href="/admin" 
+										   data-v-menu-item-url>
+										    <input type="checkbox" class="form-check-input me-1" name="">
+											<i class="icon-pulse-outline" data-v-menu-item-icon></i>
+											<img src="#" class="icon-img" data-v-menu-item-icon-img>
+											<span class="title" data-v-menu-item-name>Dashboard</span>
+											<!-- span class="text-muted" data-v-menu-item-subtitle>Subtitle</span -->
+											<span class="badge badge-primary" data-v-menu-item-badge></span>
+										</a>
+
+
+										<ul class=""  data-v-submenu>
+
+											<li class="nav-item" data-v-submenu-item>
+												<input type="checkbox" class="form-check-input me-1" name="">
+												<a href="/adminindex.php?module=posts" class="nav-link"
+												   data-v-submenu-item-url>
+												   <input type="checkbox" name="">
+												   
+												   <i class="icon-pulse-outline" data-v-submenu-item-icon></i>
+												   <img src="#" class="icon-img" data-v-submenu-item-icon-img></i>
+												   <span data-v-submenu-item-name>Submenu</span>
+												   <span class="text-muted" data-v-submenu-item-subtitle>Subtitle</span>
+												   <span class="badge badge-primary" data-v-submenu-item-badge></span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+								</ul>
+								
+							
+							
+							</div>			
+						</div>			
+					</div>			
+
+               
+            </div>
+          </div>
+      </form>
+
+    </div>
+  </div>
+
+<style>
+.switch {
+  position: relative;
+}
+.switch input {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  opacity: 0;
+  cursor: pointer;
+}
+.switch input:checked {
+  z-index: 1;
+}
+.switch input:checked + label {
+  opacity: 1;
+  cursor: default;
+}
+.switch input:not(:checked) + label:hover {
+  opacity: 0.5;
+}
+.switch label {
+  color: #fff;
+  opacity: 0.33;
+  transition: opacity 0.25s ease;
+  cursor: pointer;
+}
+.switch .toggle-outside {
+  height: 100%;
+  border-radius: 2rem;
+  padding: 0.25rem;
+  overflow: hidden;
+  transition: 0.25s ease all;
+}
+.switch .toggle-inside {
+  border-radius: 5rem;
+  background: #4a4a4a;
+  position: absolute;
+  transition: 0.25s ease all;
+}
+.switch--horizontal {
+  width: 3rem;
+  height: 1.56rem;
+  margin: 0 auto;
+  font-size: 0;
+  display:inline-block;
+  vertical-align: top;
+}
+.switch--horizontal input {
+  height: 1.5rem;
+  width: 3rem;
+  margin: 0;
+}
+.switch--horizontal label {
+  font-size: 1.5rem;
+  line-height: 3rem;
+  display: inline-block;
+  width: 6rem;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+}
+.switch--horizontal label:last-of-type {
+  margin-left: 6rem;
+}
+.switch--horizontal .toggle-outside {
+  background: rgba(var(--bs-body-color-rgb),0.05);
+  border: 1px solid rgba(var(--bs-body-color-rgb),0.2);
+  position: absolute;
+  width: 3rem;
+  left:0;
+}
+.switch--horizontal .toggle-inside {
+  height: 1rem;
+  width: 1rem;
+}
+.switch--horizontal input:checked ~ .toggle-outside .toggle-inside {
+  left: 0.25rem;
+}
+.switch--horizontal input ~ input:checked ~ .toggle-outside .toggle-inside {
+  left: 1.55rem;
+}
+.switch--no-label label {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+.switch--no-label input:checked ~ .toggle-outside .toggle-inside {
+  background: rgba(var(--bs-body-color-rgb),0.05);
+  border: 1px solid rgba(var(--bs-body-color-rgb),0.2);
+}
+.switch--no-label input ~ input:checked ~ .toggle-outside {
+	background: rgba(var(--bs-body-color-rgb),0.05);
+}
+.switch--no-label input ~ input:checked ~ .toggle-outside .toggle-inside {
+  background: rgba(var(--bs-primary-rgb),0.8);;
+}
+
+#hide-menu-per-role .navbar-nav .dropdown-menu {
+    display: block;
+    margin-left: 2rem;
+    width: 100%;
+    border: none;
+    opacity:1;
+}
+
+#hide-menu-per-role .navbar-nav .dropdown-menu img {
+	max-width:24px;
+}
+</style>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script id="admin-js" type="module" src="../../js/admin.js"></script>
+<script type="module" src="../../js/admin.js"></script>
+<script>
+$("input[data-v-roles-input]").on("change", function (e) {
+	//let tabPane = $("#" + this.value);
+	let tab = $("#" + this.dataset.roles + "-tab");
+	if (this.checked && this.value == "true") {
+		//tabPane.show();
+		tab.removeClass("d-none");
+	} else {
+		//tabPane.hide();
+		tab.addClass("d-none");
+	}
+});
+
+</script>
+
+
+  
+  
+
+</body>
+</html>

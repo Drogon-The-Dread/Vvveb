@@ -5,4 +5,5 @@ INSERT INTO `language` (`language_id`, `name`, `code`, `locale`, `sort_order`, `
 (4,	'Dutch',	 'nl_NL', 'nl-nl', 4, 0, 0),
 (5,	'French',	 'fr_FR', 'fr-fr', 5, 0, 0),
 (6,	'Russian',	 'ru_RU', 'ru-ru', 6, 0, 0),
-(7,	'Italian',	 'it_IT', 'it-it', 7, 0, 0);
+(7,	'Italian',	 'it_IT', 'it-it', 7, 0, 0),
+(8,	'German',	 'de_DE', 'de-de', 8, 0, 0);

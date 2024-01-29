@@ -151,9 +151,15 @@ class Base {
 		}
 
 		$site = siteSettings();
-		$user = User::current();
+		/*
+				$site['url'] = \Vvveb\url('index/index',[
+						'host'   => $_SERVER['HTTP_HOST'] ?? false,
+						'scheme' => $_SERVER['REQUEST_SCHEME'] ?? 'http',
+				]);
+		*/
 		$site['url'] = '//' . $_SERVER['HTTP_HOST'] ?? '';
 
+		$user                          = User::current();
 		$this->global['site_id']       = SITE_ID ?? 1;
 		$this->global['user_id']       = $user['user_id'] ?? false;
 		$this->global['user_group_id'] = $user['user_group_id'] ?? 1;

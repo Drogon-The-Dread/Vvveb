@@ -28,7 +28,7 @@ class Post extends Edit {
 	protected $object = 'post';
 
 	protected $module = 'content/post';
-
+	
 	protected $list   = 'content/posts';
 
 	function save() {

@@ -52,6 +52,7 @@ class Themes extends Extensions {
 		$list        = glob(DIR_ROOT . '/public/themes/*/index.html');
 
 		$themes = [];
+
 		foreach ($list as $file) {
 			$folder      = Str::match('@/([^/]+)/[a-z]+.\w+$@', $file);
 			$dir         = Str::match('@(.+)/[a-z]+.\w+$@', $file);

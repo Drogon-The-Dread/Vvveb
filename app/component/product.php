@@ -49,6 +49,8 @@ class Product extends ComponentBase {
 		$product = new ProductSQL();
 		$results = $product->get($this->options);
 
+		$results['images'] = [];
+
 		if (isset($results['product_image'])) {
 			$results['images'] = Images::images($results['product_image'], 'product', $this->options['image_size']);
 		}
@@ -77,8 +79,6 @@ class Product extends ComponentBase {
 			$results['promotion_formatted']     = $currency->format($results['promotion']);
 			$results['promotion_discount']      = 100 - ceil($results['promotion'] * 100 / $results['price']);
 		}
-
-		//$data['price'] = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_type_id'], $this->config->get('config_tax')), $this->session->data['currency']);
 
 		list($results) = Event :: trigger(__CLASS__,__FUNCTION__, $results);
 

@@ -97,7 +97,7 @@ class Revisions extends Base {
 		$view     = $this->view;
 		$results  = $this->revisions->get($this->options);
 		$revision = [];
-		
+
 		if ($results && $results['content']) {
 			foreach (['content', 'created_at', 'display_name'] as $key) {
 				$revision[$key] = $results[$key];

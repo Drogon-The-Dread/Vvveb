@@ -111,6 +111,17 @@ class Themes extends Base {
 	}
 
 	function import() {
+		/*
+		$import              = $this->request->post['import'];
+		$required_plugins    = $this->request->post['required_plugins'];
+		$recommended_plugins = $this->request->post['recommended_plugins'];*/
+
+		//print_r($import);
+		//$this->processImport($import, '');
+		//print_r($required_plugins);
+		//print_r($recommended_plugins);
+
+		return;
 	}
 
 	function activate() {

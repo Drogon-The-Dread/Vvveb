@@ -24,6 +24,7 @@ namespace Vvveb\System\Component;
 
 use function Vvveb\session;
 use Vvveb\System\Core\Request;
+use Vvveb\System\Event;
 use Vvveb\System\User\User;
 
 #[\AllowDynamicProperties]
@@ -95,6 +96,8 @@ class ComponentBase {
 				$value = isset($request->request[$key]) ? $request->request[$key] : null;
 			}
 		}
+
+		list($this->options) = Event :: trigger(get_class($this), __FUNCTION__, $this->options);
 
 		$this->di($this);
 	}

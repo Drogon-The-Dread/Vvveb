@@ -92,7 +92,7 @@ class Manifest extends Base {
 		  ],*/
 		];
 
-		$this->view->json = $manifest;
 		$this->response->setType('json');
+		$this->response->output($manifest);
 	}
 }

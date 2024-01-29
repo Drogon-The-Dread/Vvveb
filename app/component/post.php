@@ -54,8 +54,8 @@ class Post  extends ComponentBase {
 
 		if (isset($results['image'])) {
 			$results['image'] = Images::image($results['image'], 'post');
-		}
-
+		}		
+		
 		if (isset($results['avatar'])) {
 			$results['avatar'] = Images::image($results['avatar'], 'admin');
 		}

@@ -134,6 +134,8 @@ class Vtpl {
 
 			if ($command) {
 				$this->template .= " = $command\n";
+			} else {
+				$this->template .= "\n";
 			}
 		}
 	}
@@ -212,7 +214,7 @@ class Vtpl {
 		$this->phpCode   = $phpCode[0];
 	}
 
-	private  function processFroms() {
+	private function processFroms() {
 		/*
 		 *Froms - from(index.html|#element)
 		 */
@@ -1866,14 +1868,21 @@ class Vtpl {
 
 						continue;
 					} else {
-						if (isset($value[0]) && $value[0] == '$' && preg_match('/^\$[a-z][\w\.]+$/i', $value)) {
-							if (strpos($value, 'this') === 0) {
-								$value = str_replace('this.', 'this->', $value);
-							}
-							$value   = Vvveb\dotToArrayKey($value);
+						if (strpos($value,'$') !== false) {
+							
+							$value = preg_replace_callback('/{(\$[a-z][\w\.]+)}/i',
+							  function ($matches)  {
+								$value = $matches[1];  
+								if (strpos($value, '$this') === 0) {
+									$value = str_replace('$this.', '$this->', $value);
+								}
+								$value   = Vvveb\dotToArrayKey($value);
+								$php  = '<_script language="php"><![CDATA[ if (isset(' . $value . ')) echo htmlentities(' . $value . ');]]></_script>';
+								return $php;
+							  }, $value);
 
-							$php  = '<_script language="php"><![CDATA[ if (isset(' . $value . ')) echo ' . $value . ';]]></_script>';
-							$this->setNodeAttribute($node, $name, $php);
+
+							$this->setNodeAttribute($node, $name, $value);
 						}
 					}
 					/*
@@ -1998,7 +2007,7 @@ class Vtpl {
 					  		$script = $self->_scripts[$matches[2]];
 					  	}
 
-					  	return '<script' . $matches[1] . '>' . $script . $matches[3] . '</script>';
+					  	return '<script' . $matches[1] . ' ' . $matches[3] . '>' . $script . '</script>';
 					  }, $html);
 
 		//cleanup modified scripts

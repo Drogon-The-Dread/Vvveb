@@ -53,13 +53,12 @@ define('DIR_PLUGINS', DIR_ROOT . 'plugins' . DS);
 define('DIR_COMPILED_TEMPLATES', DIR_STORAGE . 'compiled-templates' . DS);
 define('DIR_BACKUP', DIR_STORAGE . 'backup' . DS);
 define('DIR_THEMES', DIR_ROOT . join(DS, ['public', 'themes']));
+define('DIR_PUBLIC', DIR_ROOT . 'public' . DS);
 
 if (APP == 'app') {
 	define('DIR_THEME', DIR_ROOT . join(DS, ['public', 'themes']) . DS);
-	define('DIR_PUBLIC', DIR_ROOT . 'public' . DS);
 } else {
 	define('DIR_THEME', DIR_ROOT . 'public' . DS . APP . DS);
-	define('DIR_PUBLIC', DIR_ROOT . 'public' . DS);
 }
 
 define('DIR_APP', DIR_ROOT . APP . DS);

@@ -38,7 +38,7 @@ class News extends ComponentBase {
 	];
 
 	public $options = [];
-
+	
 	function getNews() {
 		$ctx = stream_context_create([
 			'http' => [
@@ -61,7 +61,8 @@ class News extends ComponentBase {
 	}
 
 	function results() {
-		// return [];
+		list($this->domain, $this->url) = Event::trigger(__CLASS__, 'url', $this->domain, $this->url);
+		
 		$cache = Cache::getInstance();
 		// check for news ~twice a week
 		$news = $cache->cache('vvveb', 'news', function () {

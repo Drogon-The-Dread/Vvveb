@@ -1,4 +1,4 @@
-INSERT INTO `menu_item` VALUES 
+INSERT INTO `menu_item` (`menu_item_id`, `menu_id`, `image`, `url`, `parent_id`, `item_id`, `sort_order`, `status`)  VALUES 
 (1,3,'','',0,null,1,1),
 (2,3,'','',1,null,2,1),
 (3,3,'','',0,null,3,1),

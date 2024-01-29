@@ -107,6 +107,7 @@ class Order extends Base {
 				$url                    = ['module' => 'order/order', 'action' => 'print', 'order_id' => $order['order_id']];
 				$view->printUrl 	       = \Vvveb\url($url);
 				$view->printShippingUrl = \Vvveb\url(['action' => 'printShipping'] + $url);
+				$view->printInvoiceUrl  = \Vvveb\url(['action' => 'printInvoice'] + $url);
 			} else {
 				return $this->notFound(true, __('Order not found!'));
 			}
@@ -123,6 +124,10 @@ class Order extends Base {
 	}
 
 	function printShipping() {
+		return $this->index();
+	}
+	
+	function printInvoice() {
 		return $this->index();
 	}
 

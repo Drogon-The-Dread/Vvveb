@@ -93,11 +93,15 @@ class Menus extends Categories {
 
 		$menus  = new menuSQL();
 
+		if (!is_numeric($data['item_id'])) {
+			unset($data['item_id']);
+		}
+		
 		if (isset($data['menu_item_id']) && $data['menu_item_id']) {
 			$results = $menus->editMenuItem(['menu_item' => $data, 'menu_item_id' => $data['menu_item_id']]);
 
 			if ($results) {
-				echo __('Item edited!');
+				echo __('Item saved!');
 			}
 		} else {
 			$results = $menus->addMenuItem(['menu_item' => $data]);

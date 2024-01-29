@@ -1,4 +1,5 @@
 INSERT INTO `product_content` VALUES 
+
 (1,1,'Product 1', 'product-one','Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua','','Product 1','',''),
 
 

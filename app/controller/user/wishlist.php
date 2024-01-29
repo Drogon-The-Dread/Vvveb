@@ -22,8 +22,6 @@
 
 namespace Vvveb\Controller\User;
 
-use Vvveb\System\User\User;
-
 class Wishlist extends Base {
 	function index() {
 	}

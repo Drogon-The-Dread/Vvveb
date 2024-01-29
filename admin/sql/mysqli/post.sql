@@ -253,6 +253,7 @@
 		OUT fetch_row,
 		OUT fetch_row,
 		OUT fetch_all,
+		OUT fetch_all,
 	)
 	BEGIN
 
@@ -320,6 +321,10 @@
 		-- meta
 		SELECT `key` as array_key,value as array_value FROM post_meta as _
 			WHERE _.post_id = @result.post_id;	 
+
+		-- post_to_site
+		SELECT site_id as array_key, site_id FROM post_to_site
+			WHERE post_to_site.post_id = @result.post_id;	 
 	 
 	END
 

@@ -280,7 +280,7 @@
 			
 			VALUES ( :each, :menu_item_id)
 			ON CONFLICT(`menu_item_id`,`language_id`)
-			DO UPDATE SET `name` = :each.name, `content` = :each.content, `slug` = :each.slug 
+			DO UPDATE SET @LIST(:each)
 			WHERE menu_item_id = :menu_item_id AND language_id = :each.language_id;				
 				
 

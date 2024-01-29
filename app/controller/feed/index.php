@@ -40,7 +40,7 @@ class Index extends Base {
 				if (file_exists($file)) {
 					header('Content-type: text/xml');
 
-					$this->view->setTheme($t);
+					$this->view->setTheme($t);					
 					$this->view->pubDate = date('r');
 
 					return $xml;

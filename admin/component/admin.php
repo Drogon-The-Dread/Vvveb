@@ -44,11 +44,11 @@ class Admin extends ComponentBase {
 
 	function results() {
 		$results       = AdminUser::current();
-
+	
 		if (isset($results['avatar'])) {
-			$results['avatar']= Images::image($results['avatar'], 'admin');
+				$results['avatar']= Images::image($results['avatar'], 'admin');
 		}
-
+		
 		list($results) = Event::trigger(__CLASS__, __FUNCTION__, $results);
 
 		return $results;

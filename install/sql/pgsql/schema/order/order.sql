@@ -6,8 +6,8 @@ CREATE SEQUENCE order_seq;
 
 CREATE TABLE "order" (
   "order_id" int check ("order_id" > 0) NOT NULL DEFAULT NEXTVAL ('order_seq'),
-  "invoice_no" int check ("invoice_no" > 0) NOT NULL DEFAULT 0,
-  "invoice_prefix" varchar(26) NOT NULL DEFAULT 'INV-',
+  "invoice_no" varchar(191) NOT NULL DEFAULT '0',
+  "invoice_prefix" varchar(26) NOT NULL DEFAULT 'I-',
   "site_id" smallint NOT NULL DEFAULT 0,
   "site_name" varchar(64) NOT NULL,
   "site_url" varchar(191) NOT NULL,

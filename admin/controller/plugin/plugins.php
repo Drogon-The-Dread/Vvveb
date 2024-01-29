@@ -25,12 +25,12 @@ namespace Vvveb\Controller\Plugin;
 use function Vvveb\__;
 use Vvveb\Controller\Base;
 use function Vvveb\rrmdir;
+use Vvveb\System\CacheManager;
 use function Vvveb\System\Core\exceptionToArray;
 use Vvveb\System\Core\FrontController;
 use Vvveb\System\Core\View;
 use Vvveb\System\Extensions\Plugins as PluginsList;
 use Vvveb\System\User\Admin;
-use Vvveb\System\CacheManager;
 
 class Plugins extends Base {
 	function init() {
@@ -162,7 +162,7 @@ class Plugins extends Base {
 
 			ignore_user_abort(1);
 			clearstatcache(true);
-			
+
 			CacheManager::clearCompiledFiles();
 
 			if (defined('CLI')) {

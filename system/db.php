@@ -29,7 +29,7 @@ class Db {
 		if (! $engine) {
 			return;
 		}
-		
+
 		if (! isset($inst[$engine]) || $inst[$engine] === null) {
 			$driverName = "\Vvveb\System\Db\\$engine";
 

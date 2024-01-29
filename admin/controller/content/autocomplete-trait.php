@@ -83,9 +83,9 @@ trait AutocompleteTrait {
 		$vendors = new \Vvveb\Sql\VendorSQL();
 
 		$options = [
-			'start'       => 0,
-			'limit'       => 10,
-			'search'      => '%' . trim($this->request->get['text']) . '%',
+			'start'  => 0,
+			'limit'  => 10,
+			'search' => '%' . trim($this->request->get['text']) . '%',
 		] + $this->global;
 
 		$results = $vendors->getAll($options);
@@ -113,6 +113,7 @@ trait AutocompleteTrait {
 			'search'      => trim($this->request->get['text']),
 		] + $this->global;
 
+		unset($options['admin_id']);
 		$results = $products->getAll($options);
 
 		$search = [];
@@ -185,8 +186,8 @@ trait AutocompleteTrait {
 		$this->response->output($search);
 
 		return false;
-	}	
-	
+	}
+
 	function optionValuesAutocomplete() {
 		$values = new \Vvveb\Sql\Option_valueSQL();
 

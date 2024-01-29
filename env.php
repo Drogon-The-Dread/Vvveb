@@ -28,7 +28,7 @@ define('SQL_CHECK', true);
 /*
  Page cache needs web server support for maximum performance, make sure that apache has .htaccess support and nginx is configured according to included nginx.conf
  */
-define('PAGE_CACHE', false);
+define('PAGE_CACHE', true);
 
 /*
 Disable on production to hide error messages, if enabled it will show detailed error messages 
@@ -52,7 +52,10 @@ defined('V_SHARED_SESSION') || define('V_SHARED_SESSION', false);
 defined('LOG_SQL_QUERIES') || define('LOG_SQL_QUERIES', false);
 
 if (DEBUG) {
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+} else {
+	error_reporting(0);
+	ini_set('display_errors', 0);
 }

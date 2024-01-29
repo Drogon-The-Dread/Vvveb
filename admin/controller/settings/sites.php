@@ -28,6 +28,9 @@ use Vvveb\System\Sites as SitesList;
 use Vvveb\System\User\Admin;
 
 class Sites extends Base {
+	//check for other modules permission like post and editor to enable links like save/delete etc
+	protected $additionalPermissionCheck = ['settings/site/add'];
+
 	function add() {
 	}
 

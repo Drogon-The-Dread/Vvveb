@@ -70,7 +70,7 @@
 	CREATE PROCEDURE getContent(
 		IN post_id INT,
 		IN site_id INT,
-                IN slug CHAR,
+        IN slug CHAR,
 		OUT fetch_all,
 	)
 	BEGIN
@@ -87,20 +87,20 @@
 			
 		WHERE 1 = 1
 
-		@IF isset(:slug)
-		THEN 
-			AND _.post_id = (SELECT post_id FROM post_content WHERE slug = :slug LIMIT 1)
-		END @IF			
+            @IF isset(:slug)
+			THEN 
+				AND _.post_id = (SELECT post_id FROM post_content WHERE slug = :slug LIMIT 1)
+        	END @IF			
 
-		@IF isset(:post_id)
-		THEN
-           	  AND _.post_id = :post_id
-		END @IF			
+            @IF isset(:post_id)
+			THEN
+                AND _.post_id = :post_id
+        	END @IF			
 
-		@IF isset(:site_id)
-		THEN
-            AND pt.site_id = :site_id
-		END @IF			
+			@IF isset(:site_id)
+			THEN
+                AND pt.site_id = :site_id
+        	END @IF			
 	END
 
 	-- Get categories

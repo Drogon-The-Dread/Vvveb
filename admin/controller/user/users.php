@@ -70,7 +70,7 @@ class Users extends Base {
 		if ($results[$type]) {
 			foreach ($results[$type] as $id => &$user) {
 				if (isset($user['avatar'])) {
-					$user['avatar']= Images::image($user['avatar'], 'admin');
+						$user['avatar']= Images::image($user['avatar'], 'admin');
 				}
 
 				$user['status_text']      = $user['status'] == '1' ? __('active') : __('inactive');

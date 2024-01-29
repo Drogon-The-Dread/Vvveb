@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS `order`;
 
 CREATE TABLE `order` (
 `order_id` INTEGER PRIMARY KEY AUTOINCREMENT,
-`invoice_no` INT NOT NULL DEFAULT '0',
+`invoice_no` TEXT NOT NULL DEFAULT '0',
 `invoice_prefix` TEXT NOT NULL DEFAULT 'I-',
 `site_id` TINYINT NOT NULL DEFAULT '0',
 `site_name` TEXT NOT NULL,

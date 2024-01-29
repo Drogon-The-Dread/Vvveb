@@ -587,7 +587,7 @@ return
  						'name'   => __('Add new'),
  						'url'    => $admin_path . '?module=settings/site',
  						'module' => 'settings/site',
- 						'action' => 'index',
+ 						'action' => 'add',
  						'icon'   => 'la la-plus-circle',
  					],
  				],
